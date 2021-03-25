@@ -73,4 +73,9 @@ body{
     align-items: center;
 }
 
+.home{
+  display: flex;
+  justify-content: center;
+ justify-content: space-around;
+}
 
