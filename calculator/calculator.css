@@ -1,0 +1,52 @@
+.container{
+	border: 2px solid red;
+	width: 275px;
+	margin-top: 250px;
+	margin-left: 500px;
+	padding-bottom: 1em;
+
+	padding-left: 0.5em;
+	padding-top: 1em;
+	text-align: center;
+    border-radius: 5px;
+    background-color: orange;
+    overflow: hidden;
+	
+}
+
+.lin1 button{
+    
+
+         margin:5px auto;
+         background-color: pink;
+         font-size: 1.5em;
+         padding: 0.5em 0.5em 0.5em 0.5em;
+         border-radius: 5px;
+         
+         
+}
+.operator {
+  background-color: #00ff44;
+  color: #000;
+}
+.display{
+height:30px;
+}
+
+.calculator{
+	width: 25%;
+	margin-left:auto;
+	margin-right: auto; 
+	text-transform: uppercase;
+	background-color: white;
+	overflow: hidden; 
+	border:2px solid red;
+}
+.main{
+	margin-top: -200px;
+	margin-left: -10px;
+	
+}
+body{
+	background-color: blue;
+}
