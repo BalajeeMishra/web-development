@@ -1,0 +1,57 @@
+<% layout('/layouts/boilerplate.ejs')%>
+
+    <div class="full">
+        <div class="c">
+            <form action="/routine" method="post">
+                <div class="one">
+                    <label for="list" class="control">Enter your list here:</label>
+                    <input type="text" name="list" id="list" placeholder="Write here...">
+                </div>
+                <div class="one">
+                    <label for="time" class="control">spending time there:</label>
+                    <input type="Number" name="time" id="time" placeholder="Time goes here...">
+                </div>
+                <button type="submit" class="btn btn-secondary mt-4">submit</button>
+            </form>
+        </div>
+    </div>
+    <div class="button">
+        <button class="btn btn-warning "><a href="/routine">GO BACK</a></button>
+    </div>
+    <style>
+        body {
+            background-color: chartreuse;
+        }
+
+        .c {
+            width: 500px;
+            height: 200px;
+            background-color: bisque;
+            text-align: center;
+
+        }
+
+        .full {
+            display: flex;
+            justify-content: center;
+            margin-top: 150px;
+        }
+
+        #list {}
+
+        .control {
+            margin-top: 30px;
+            font-size: 1.2em;
+            font-family: 'Courier New', Courier, monospace;
+        }
+
+        .button {
+            text-align: center;
+            margin-top: 50px;
+            text-decoration: none;
+        }
+
+        a {
+            text-decoration: none;
+        }
+    </style>
