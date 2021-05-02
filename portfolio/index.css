@@ -1,54 +1,45 @@
 body{
-    background: #343a40;
+    /* background: #343a40; */
    /* background: url("https://cdn.hipwallpaper.com/i/65/22/g876Ek.jpg") center center/fixed; */
    /* background: url("https://cdn.hipwallpaper.com/i/65/22/g876Ek.jpg") center fixed; */
    /* background: linear-gradient(45deg, rgba(25,0,16,.8), lightblue, lightpink); */
    /* filter: blur(7px);  */
-   background-color: #ff4e00;
+   /* background-color: #ff4e00; */
 background-image: linear-gradient(315deg, #ff4e00 0%, #ec9f05 74%);
 
 }
-
-
-/* .i{
-width: 300px;
- text-align: center;
- margin-left: 300px;
- margin-top: 200px;
-} */
 .text{
  font-family:'Courier New', Courier, monospace;
  color:aliceblue;
- width: 600px;
- /* height: 100vh;
- display: flex;
- align-items: center; 
-  justify-content: center;  */
-
- /* align-items: center;  */
+ text-align: center;
 } 
 .class{
- margin-top: 200px;
- margin-left: 350px;
+ width: 50%;
+ margin:30px auto;
+
 }
 .both{
  display: flex;
- /* flex-wrap: wrap; */
- flex-direction: row;
  justify-content: center;
  align-items: center;
- /* flex-wrap: wrap; */
  margin-left: auto;
  margin-right: auto;
-
-
- /* align-items: center; */
+ margin-bottom:20px ;
 }
 div.both.image{
+    
 width: 150px;
 height: 150px;
 border-radius: 50%;
 overflow: hidden;
+
+}
+
+.tech{
+    color: aliceblue;
+    width: 30%;
+   text-decoration-line:underline;
+    margin: 20px;
 
 }
 
@@ -88,16 +79,9 @@ text-align: center;
  align-items: center;
  
 }
-.home{
-/* width: 60%; */
-/* display: flex; */
-/* justify-content: center; */
-align-items: center;
-margin: 0 auto;
-gap: 20px;
 
 
-}
+
 @media only screen and(max-width:600px;){
 body{
 background-color:lightgreen;
@@ -252,3 +236,4 @@ gap: 10px;
     text-decoration:underline;
    font-size:25px;
 }
+
