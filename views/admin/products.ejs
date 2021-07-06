@@ -1,73 +1,71 @@
 <%- include('../layouts/adminheader'); -%>
 
-    <h2 class="page-title">Products</h2>
-
-
-    <a href="/admin/products/add-product" class="btn btn-primary">Add a new product</a>
+    <div class="container main-title">
+        <h2 class="page-title">Products</h2>
+        <a href="/admin/products/add-product" class="btn btn-info mt-2">Add a new product</a>
+    </div>
     <br><br>
 
+    <div class="container table-style">
+        <table class="table table-striped alignmiddle">
+            <thead>
+                <tr class="th-style">
+                    <th>Product</th>
+                    <th>Price</th>
+                    <th>Category</th>
+                    <th>Product Image</th>
+                    <th>Edit</th>
+                    <th>Delete</th>
+                </tr>
+            </thead>
+            <tbody>
+                <% products.forEach(function(product,j){ %>
+                    <tr class="td-style">
+                        <td>
+                            <%= product.title %>
+                        </td>
+                        <td>
+                            INR <%= product.price %>
+                        </td>
 
-    <table class="table table-striped alignmiddle">
-        <thead>
-            <tr class="home">
-                <th>Product</th>
-                <th>Price</th>
-                <th>Category</th>
-                <th>Product Image</th>
-                <th>Edit</th>
-                <th>Delete</th>
-            </tr>
-        </thead>
-        <tbody>
-            <% products.forEach(function(product){ %>
-                <tr>
-                    <td>
-                        <%= product.title %>
-                    </td>
-                    <td>$<%= product.price %>
-                    </td>
+                        <td>
+                            <%= product.category %>
+                        </td>
 
-                    <td>
-                        <%= product.category %>
-                    </td>
+                        <td style="width: 20%;">
+                            <div id="productCarousel<%=j%>" class="carousel slide" data-bs-touch="false"
+                                data-bs-interval="false">
+                                <div class="carousel-inner">
+                                    <% product.images.forEach((img, i)=> { %>
+                                        <div class="carousel-item <%=i === 0?" active":"" %> " data-bs-interval="3000">
+                                            <img src="<%=img.url%>" class="d-block w-100" alt="">
+                                        </div>
 
-                    <td>
-                        <div id="productCarousel" class="carousel slide" data-bs-ride="carousel">
-                            <div class="carousel-inner">
-                                <% product.images.forEach((img, i)=> { %>
-                                    <div class="carousel-item <%= i === 0 ? 'active' : ''%>">
-                                        <img src="<%= img.thumbnail%>" class="d-block w-100" alt="">
-                                    </div>
-                                    <% }) %>
+                                        <% }) %>
+                                </div>
+                                <% if(product.images.length> 1) {%>
+                                    <button class="carousel-control-prev" type="button"
+                                        data-bs-target="#productCarousel<%=j%>" data-bs-slide="prev">
+                                        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                                        <span class="visually-hidden">Previous</span>
+                                    </button>
+                                    <button class="carousel-control-next" type="button"
+                                        data-bs-target="#productCarousel<%=j%>" data-bs-slide="next">
+                                        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                                        <span class="visually-hidden">Next</span>
+                                    </button>
+                                    <% } %>
 
                             </div>
-                            <% if(product.images.length> 1) {%>
-                                <button class="carousel-control-prev" type="button" data-bs-target="#productCarousel"
-                                    data-bs-slide="prev">
-                                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                                    <span class="visually-hidden">Previous</span>
-                                </button>
-                                <button class="carousel-control-next" type="button" data-bs-target="#productCarousel"
-                                    data-bs-slide="next">
-                                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                                    <span class="visually-hidden">Next</span>
-                                </button>
-                                <% } %>
-                        </div>
-
-
-                    </td>
-
-
-
-                    <td><a href="/admin/products/edit-product/<%= product._id %>">Edit</a></td>
-                    <td><a class="confirmDeletion" href="/admin/products/delete-product/<%= product._id %>">Delete</a>
-                    </td>
-                </tr>
-                <% }); %>
+    </div>
+    </td>
+    <td><a class="btn btn-danger" href="/admin/products/edit-product/<%= product._id %>">Edit</a>
+    </td>
+    <td><a class="confirmDeletion btn btn-danger" href="/admin/products/delete-product/<%= product._id %>">Delete</a>
+    </td>
+    </tr>
+    <% }); %>
         </tbody>
-    </table>
-
-
-
-    <%- include('../layouts/adminfooter'); -%>
+        </table>
+        </div>
+        <%- include('../layouts/adminfooter'); -%>

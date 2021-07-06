@@ -1,0 +1,42 @@
+<%- include("./layouts/header"); -%>
+
+
+    <style>
+        body {
+            background: url(https://images.pexels.com/photos/2321438/pexels-photo-2321438.jpeg?auto=compress&cs=tinysrgb&dpr=2&w=500)
+        }
+    </style>
+
+    <div class="container">
+        <h1 class="byCategory">By Category</h1>
+        <% category.forEach((cate,i)=>{%>
+            <div class="accordion " id="accordionCategory">
+                <div class="accordion-item">
+                    <h2 class="accordion-header" id="headingOne">
+                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                            data-bs-target='#<%= cate.title %>' aria-expanded="false"
+                            aria-controls="<%= cate.title %> ">
+                            <%= cate.title %>
+                        </button>
+                    </h2>
+
+                    <div id='<%= cate.title %>' class="accordion-collapse collapse" aria-labelledby="headingOne"
+                        data-bs-parent="#accordionCategory">
+                        <div class="accordion-body">
+                            <% product.forEach((pro)=>{%>
+                                <% if(pro.category==cate.title) { %>
+                                    <a href="/products/<%=pro._id%>" class='nav-link'>
+                                        <%= pro.title %>
+                                    </a>
+                                    <% } %>
+                                        <% }) %>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+            <% }) %>
+    </div>
+
+    <%- include("./layouts/footer"); -%>

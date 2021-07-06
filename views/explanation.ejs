@@ -1,0 +1,83 @@
+<%- include("./layouts/header");-%>
+
+
+    <% page.forEach((p)=>{%>
+
+        <% if(p.title===title ) {%>
+
+
+            <div class="container" id="about">
+                <div class="row">
+                    <div class="col-sm-8">
+                        <h2>About us</h2>
+                        <h4>Giving services since 2021</h4>
+                        <p> Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusantium minus laborum vel et,
+                            molestias ratione
+                            illo velit assumenda quae iure saepe voluptatibus harum. Minima dolorum temporibus non quos
+                            commodi aut. Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusantium minus
+                            laborum vel et, molestias ratione
+                            illo velit assumenda quae iure saepe voluptatibus harum. Minima dolorum temporibus non quos
+                            commodi aut.</p>
+                    </div>
+                    <div class="col-sm-4">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="10em" height="10em" fill="currentColor"
+                            class="bi bi-bar-chart-line" viewBox="0 0 16 16">
+                            <path
+                                d="M11 2a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1v12h.5a.5.5 0 0 1 0 1H.5a.5.5 0 0 1 0-1H1v-3a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1v3h1V7a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1v7h1V2zm1 12h2V2h-2v12zm-3 0V7H7v7h2zm-5 0v-3H2v3h2z" />
+                        </svg>
+                    </div>
+                </div>
+                <a href="#Getintouch"> <button type="button" class="btn btn-primary">Get in touch</button></a>
+            </div>
+            <% } %>
+                <% }) %>
+
+
+
+
+
+                    <div class="regular-update">
+                        <h3>Get Regular Update</h3>
+                    </div>
+
+                    <div class="container form-tocontact" style="background-color: rgb(243, 239, 239);">
+                        <form>
+                            <div class=" form-group mb-3">
+                                <label for="exampleInputEmail1" class="form-label mt-3">Email address</label>
+                                <input type="email" class="form-control" name="email" id="exampleInputEmail"
+                                    aria-describedby="emailHelp" placeholder="Email">
+                                <div id="emailHelp" class="form-text">We'll never share your email with anyone else.
+                                </div>
+                            </div>
+                            <div class="form-group mb-3">
+                                <label for="phone_number" class="form-label">contact number</label>
+                                <input type="tel" name="phone_number" class="form-control" id="phone_number"
+                                    pattern="^\d{10}$" required="required" placeholder="9315123467 this way">
+                            </div>
+
+
+                            <div class="mb-3 form-check">
+                                <input type="checkbox" class="form-check-input" id="exampleCheck1">
+                                <label class="form-check-label" for="exampleCheck1">Check me out</label>
+                            </div>
+                            <button type="submit" class="btn btn-primary mb-3">Submit</button>
+                        </form>
+                    </div>
+
+
+                    <div class="container follow-us" id="Getintouch">
+                        <h2 class="follow-us-text">FOLLOW US
+                        </h2>
+                        <div class="contact">
+                            <a href="#" class="fa fa-facebook" target="_blank"></a>
+                            <a href="#" class="fa fa-twitter"></a>
+                            <a href="#" class="fa fa-linkedin"></a>
+                            <a href="#" class="fa fa-instagram"></a>
+                        </div>
+                    </div>
+
+
+
+
+
+                    <%- include("./layouts/footer");-%>

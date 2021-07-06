@@ -1,17 +1,22 @@
 <%- include("../layouts/adminheader"); -%>
 
+    <div class="container main-title">
 
-    <h2 class="page-title">Add a category</h2>
-    <a href="/admin/categories" class="btn btn-primary">Back to all categories</a>
+        <h2 class="page-title">Add a category</h2>
+        <a href="/admin/categories" class="btn btn-info mt-2">Back to all categories</a>
+    </div>
     <br><br>
 
-    <form method="post" action="/admin/categories/add-category">
-        <div class="form-group">
-            <label for="">Title</label>
-            <input class="form-control" type="text" name="title" placeholder="Title">
-        </div>
-        <button class="btn btn-default">submit</button>
-    </form>
 
+    <div class="container">
+
+        <form method="post" action="/admin/categories/add-category">
+            <div class="form-group">
+                <label for="">Title</label>
+                <input class="form-control" type="text" name="title" placeholder="Title">
+            </div>
+            <button class="btn btn-info mt-2" type="submit">submit</button>
+        </form>
+    </div>
 
     <%- include("../layouts/adminfooter"); -%>

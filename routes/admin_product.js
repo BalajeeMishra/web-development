@@ -9,65 +9,64 @@ const multer = require('multer');
 const { storage } = require("../cloudinary/index");
 const upload = multer({ storage });
 const { cloudinary } = require("../cloudinary");
+const Cart = require("../models/cart");
 
 
 
 router.get("/", wrapAsync(async (req, res, next) => {
     const products = await Product.find({});
     res.render("admin/products", { products });
+    // console.log(JSON.stringify(products));
+    // res.send(JSON.stringify(products));
 }));
 
 
-router.get('/add-product', isLoggedIn, isAdmin, wrapAsync(async (req, res, next) => {
-    // const title = "";
-    const desc = "";
-    const price = "";
-    Category.find((err, categories) => {
-        console.log(categories)
-        res.render('admin/add_product', {
-            // title: title,
-            desc: desc,
-            categories: categories,
-            price: price
-        });
+router.get('/add-product', isLoggedIn, isAdmin, (req, res, next) => {
+    Category.find({})
+        .then(categories => {
+            res.render('admin/add_product', {
+                categories: categories,
 
-    }).then(err => next(err))
-}));
+            })
+        })
+        .catch(err => next(err));
+})
 
-router.post("/add-product", isLoggedIn, isAdmin, upload.array("image"), (req, res, next) => {
-    const newProduct = new Product(req.body);
-    console.log(newProduct.category)
-    newProduct.images = req.files.map(f => ({ url: f.path, filename: f.filename }))
-    // console.log(req.files);
-    if (!newProduct.title || !newProduct.desc || !newProduct.price) {
-        return next(new AppError("please fill up all field", 400));
 
+
+
+router.post("/add-product", isLoggedIn, isAdmin, upload.array("image"), async (req, res, next) => {
+    try {
+
+        const newProduct = new Product(req.body);
+        newProduct.images = await req.files.map(f => ({ url: f.path, filename: f.filename }))
+
+
+        await newProduct.save();
+        req.flash('success', 'Successfully made a new product!');
+        res.redirect("/admin/products");
     }
-
-    newProduct.save();
-    req.flash('success', 'Successfully made a new product!');
-    res.redirect("/admin/products");
-    console.log(req.body.category);//I cant see category value.
+    catch (e) {
+        next(e);
+    }
 
 });
 
+
 router.get("/edit-product/:id", isLoggedIn, isAdmin, wrapAsync(async (req, res, next) => {
+    const categories = await Category.find({});
     const { id } = req.params;
     const product = await Product.findById(id);
-    if (!product) {
-        req.flash('error', 'Cannot find that campground!');
-        // throw new AppError('Product Not Found', 404);       
-    }
-    res.render("admin/edit_adminproduct", { product });
+    res.render("admin/edit_adminproduct", { product, categories });
 }));
+
+
 
 router.put("/edit-product/:id", isLoggedIn, isAdmin, upload.array("image"), wrapAsync(async (req, res, next) => {
     const { id } = req.params;
-    console.log(req.body);
     const product = await Product.findByIdAndUpdate(id, req.body, { runValidators: true, new: true });
     const imgs = req.files.map(f => ({ url: f.path, filename: f.filename }));
     product.images.push(...imgs);
-    // console.log(product);
     await product.save();
 
     if (req.body.deleteImages) {
@@ -76,10 +75,25 @@ router.put("/edit-product/:id", isLoggedIn, isAdmin, upload.array("image"), wrap
         }
         await product.updateOne({ $pull: { images: { filename: { $in: req.body.deleteImages } } } })
     }
-    req.flash('success', 'Successfully updated campground!');
+
+
+    Cart.find({ userId: req.user._id })
+        .then(cart => {
+            cart.forEach(async (p) => {
+                if (p.products[0] == req.params.id) {
+                    const cart = await Cart.findByIdAndUpdate(p._id,
+                        { quantity: p.quantity, totalPrice: (product.price) * (p.quantity), runValidators: true, new: true });
+                }
+            })
+        })
+
+
+    req.flash('success', 'Successfully updated product!');
     res.redirect("/admin/products");
 
 }));
+
+
 
 router.get("/delete-product/:id", isLoggedIn, isAdmin, wrapAsync(async (req, res, next) => {
 
@@ -88,6 +102,7 @@ router.get("/delete-product/:id", isLoggedIn, isAdmin, wrapAsync(async (req, res
     for (let i = 0; i < deletedProduct.images.length; i++) {
         await cloudinary.uploader.destroy(deletedProduct.images[i].filename);
     }
+    req.flash("success", "Product Deleted");
     res.redirect("/admin/products");
 }));
 

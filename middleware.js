@@ -4,7 +4,7 @@ module.exports.isLoggedIn = (req, res, next) => {
         req.flash("error", "you must be signed in frst!");
         return res.redirect("/users/login");
     }
-    // console.log('authenticated');
+
     next();
 }
 

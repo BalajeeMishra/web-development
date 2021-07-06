@@ -1,18 +1,22 @@
 <%- include("../layouts/adminheader"); -%>
 
-
-    <h2 class="page-title">Edit a category</h2>
-    <a href="/admin/categories" class="btn btn-primary">Back to all categories</a>
+    <div class="container  main-title">
+        <h2 class="page-title">Edit a category</h2>
+        <a href="/admin/categories" class="btn btn-info mt-2">Back to all categories</a>
+    </div>
     <br><br>
+    <div class="container">
 
-    <form action="/admin/categories/edit-category/<%=category._id %>?_method=PUT" method="post">
+        <form action="/admin/categories/edit-category/<%=category._id %>?_method=PUT" method="post">
 
-        <div class="form-group">
-            <label for="">Title</label>
-            <input class="form-control" type="text" name="title" placeholder="Title">
-        </div>
-        <button class="btn btn-default">submit</button>
-    </form>
+            <div class="form-group">
+                <label for="">Title</label>
+                <input class="form-control" type="text" value="<%=category.title %> " name="title" placeholder="Title">
+            </div>
+            <button class="btn btn-info mt-2">submit</button>
+        </form>
+
+    </div>
 
 
     <%- include("../layouts/adminfooter"); -%>

@@ -15,12 +15,14 @@ const User = require('./models/user');
 
 
 
+
 const Categories = require("./routes/admin_categories");
 const Pages = require("./routes/pages")
 const Product = require("./routes/admin_product");
 const Users = require("./routes/user");
 const admin_pages = require("./routes/admin_pages");
-const Userproduct = require("./routes/product")
+const Userproduct = require("./routes/product");
+const payment = require("./routes/payment");
 
 
 mongoose.connect('mongodb://localhost:27017/shoppingcart', {
@@ -89,6 +91,7 @@ app.use("/admin/categories", Categories);
 app.use("/users", Users);
 app.use("/", Pages);
 app.use("/product", Userproduct);
+app.use("/", payment);
 
 
 const handleValidationErr = err => {
@@ -99,18 +102,21 @@ const handleValidationErr = err => {
 app.use((err, req, res, next) => {
     // console.log(err.name);
     //We can single out particular types of Mongoose Errors:
+    // console.log(err);
     if (err.name === 'ValidationError') err = handleValidationErr(err)
     next(err);
-})
+});
+
+
+
 
 
 app.use((err, req, res, next) => {
     const { statusCode = 500, message = 'Something went wrong' } = err;
-    console.log(message);
+    console.log(err);
     if (err) {
         res.status(statusCode).render('error', { err })
     }
-
 });
 
 

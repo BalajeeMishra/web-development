@@ -6,14 +6,147 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet"
-        integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <!-- <link rel="shortcut icon" href="about:blank"> -->
+
+
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+        crossorigin="anonymous"></script>
+
+
+
+
+
+
+
+    <style type="text/css">
+        .category {
+
+            display: flex;
+            justify-content: space-around;
+
+        }
+
+
+        .homeImage {
+
+
+            margin-top: 0px;
+            background: url(https://images.unsplash.com/photo-1574634534894-89d7576c8259?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MnwyNDQwMDR8MHwxfHNlYXJjaHw3fHxzaG9wcGluZ3xlbnwwfHx8fDE2MjUzMzQ0NTI&ixlib=rb-1.2.1&q=80&w=1080) no-repeat center center/cover;
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            color: white;
+            font-size: 3em;
+
+
+        }
+
+        .inner-class {
+            background: rgba(0, 0, 0, 0.1);
+            width: 100%;
+            text-align: center;
+        }
+
+        .byCategory {
+            color: orange;
+            text-shadow: 1px 1px #fff;
+            font-weight: 900;
+            margin-top: 0.5rem !important;
+            margin-bottom: 1.5rem !important;
+        }
+
+        .empty-cart {
+            height: 90vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 2em;
+            font-weight: bold;
+            text-shadow: 1px 1px rgba(189, 40, 40, 0.336);
+
+        }
+
+        #about {
+            width: 50%;
+            margin: auto;
+            margin-top: 2em;
+        }
+
+        .form-tocontact {
+            width: 50%;
+            margin: auto;
+        }
+
+        .regular-update {
+            width: 50%;
+            margin: auto;
+            color: orange;
+            text-shadow: 1px 1px #fff;
+            font-weight: 900;
+            margin-top: 4rem !important;
+            margin-bottom: 2rem !important;
+
+
+        }
+
+        .fa {
+            padding: 20px;
+            text-align: center;
+            margin: 5px 2px;
+            font-size: 30px;
+            width: 50px;
+            margin-left: 10px;
+        }
+
+        .fa-facebook {
+            background: #3B5998;
+            color: white;
+        }
+
+        .fa-twitter {
+            background: #55ACEE;
+            color: white;
+        }
+
+        .fa-linkedin {
+            background: #007bb5;
+            color: white;
+        }
+
+        .fa-instagram {
+            background: #125688;
+            color: white;
+        }
+
+        .fa:hover {
+            opacity: 0.9;
+        }
+
+        .follow-us {
+            width: 300px;
+            margin-top: 3em;
+            text-align: center;
+        }
+
+        .follow-us-text {
+            font-family: 'Courier New', Courier, monospace;
+        }
+    </style>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
 </head>
 
 <body>
-    <nav class="navbar navbar-expand-lg navbar-light bg-primary">
-        <div class="container-fluid">
-            <a class="navbar-brand" href="/">cmsShoppingCart</a>
+    <nav class="navbar navbar-expand-lg navbar-light bg-info">
+        <div class="container">
+            <a class="navbar-brand" href="/" style="color: brown;">ShoppingMarket</a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
                 data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
                 aria-label="Toggle navigation">
@@ -25,29 +158,46 @@
                         <a class="nav-link active" aria-current="page" href="/">Home</a>
                     </li>
                     <li class="nav-link">
-                        <a class="nav-link active" aria-current="page" href="/products">Products</a>
+                        <a class="nav-link active" href="/products">Products</a>
+                    </li>
+                    <li class="nav-link">
+                        <a class="nav-link active" href="/by/categorys">By category</a>
                     </li>
 
+                    <% if(typeof page !=="undefined" ){%>
 
-                    <% page.forEach((p)=>{%>
-                        <% if(p.slug==="home" ){%>
-                            <% } else {%>
-                                <li class="nav-link text-capitalize">
-                                    <a class="nav-link active" aria-current="page" href="/<%= p.title %>">
-                                        <%=p.title%>
-                                    </a>
-                                </li>
+                        <% page.forEach((p)=>{%>
+
+                            <li class="nav-link text-capitalize">
+                                <a class="nav-link active" aria-current="page" href="/<%= p.title %>">
+                                    <%=p.title%>
+                                </a>
+                            </li>
+                            <% }) %>
                                 <% } %>
-                                    <% }) %>
                 </ul>
                 <div class="navbar-nav ms-auto">
-                    <% if(!currentUser) {%>
-                        <a href="/users/login" class="nav-link">Login</a>
-                        <a href="/users/register" class="nav-link">Register</a>
-                        <% }else{ %>
-                            <a href="/users/logout" class="nav-link">Logout</a>
+                    <% if(typeof carts !=="undefined" && carts.length>0 ){ %>
+                        <a href="/all/mycart" class="nav-link">My cart(<%=carts.length %>)</a>
+                        <% } else{ %>
+                            <a href="/all/mycart" class="nav-link">My cart(0)</a>
                             <% } %>
+
+                                <% if(!currentUser) {%>
+                                    <a href="/users/login" class="nav-link">Login</a>
+                                    <a href="/users/register" class="nav-link">Register</a>
+                                    <% }else if(typeof admin !=="undefined" && admin){ %>
+                                        <a href="/admin/products" class="nav-link">control of admin</a>
+                                        <a href="/users/logout" class="nav-link">Logout</a>
+                                        <% }else{%>
+                                            <a href="/users/logout" class="nav-link">Logout</a>
+                                            <% } %>
                 </div>
             </div>
         </div>
     </nav>
+    <% if(success[0]||error[0]){ %>
+        <main class="container mt-5">
+            <%- include("./flash"); -%>
+        </main>
+        <% } %>

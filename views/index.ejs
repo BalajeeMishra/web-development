@@ -1,12 +1,14 @@
-<%- include("./layouts/header");-%>
+<%- include("./layouts/header"); -%>
+    <div class="homeImage">
+        <div class="inner-class">
 
+            We love you</br>
+            Cart is waiting for you..</br>
+            welcome here
+        </div>
+        <a href=" /products">
+            <button class="btn btn-info">Shop now</button></a>
 
-    <div class="container">
-        <% page.forEach((page)=>{%>
-            <% if(page.slug=="home" ){%>
-                <%=page.content%>
-                    <% } %>
-                        <% }) %>
-                        
     </div>
+
     <%- include("./layouts/footer"); -%>

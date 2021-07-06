@@ -1,10 +1,9 @@
 const express = require("express");
 const router = express.Router();
 const User = require("../models/user");
+const Page = require("../models/page");
 const AppError = require("../controlError/AppError");
 const wrapAsync = require("../controlError/wrapasync");
-
-
 //authentication related
 // const LocalStrategy = require("passport-local");
 // const passportLocalMongoose = require("passport-local-mongoose");
@@ -16,22 +15,25 @@ const passport = require("passport");
 // // use static authenticate method of model in LocalStrategy
 // passport.use(new LocalStrategy(User.authenticate()));
 
+
+
 router.get("/", async (req, res) => {
-    res.render(33)
+    User.find((err, pro) => {
+        console.log(pro);
+    });
 
 });
 
 router.get("/register", wrapAsync(async (req, res, next) => {
     res.render("register", { title: "register" });
+
 }));
 
 router.post("/register", wrapAsync(async (req, res, next) => {
 
-
     try {
         const { name, email, username, password } = req.body;
         const user = new User({ name, email, username });
-
         const registeredUser = await User.register(user, password);
         console.log(req.user);//mritu why this is not printed anything
         req.login(registeredUser, err => {
@@ -56,7 +58,8 @@ router.get("/login", (req, res) => {
 });
 router.post('/login', passport.authenticate('local', { failureFlash: true, failureRedirect: '/users/login' }), (req, res) => {
     req.flash('success', 'welcome back!');
-    if (req.username != "bala") {
+    req.session.admin = req.user.admin;
+    if (req.body.username != "bala") {
         const redirectUrl = req.session.returnTo || '/';
         delete req.session.returnTo;
         res.redirect(redirectUrl);
@@ -64,10 +67,8 @@ router.post('/login', passport.authenticate('local', { failureFlash: true, failu
     else {
         const redirectUrl = req.session.returnTo || '/admin/products';
         delete req.session.returnTo;
-        res.redirect(redirectUrl);
+        res.redirect("/");
     }
-    // res.redirect("/admin/products");
-
 });
 
 router.get("/logout", (req, res) => {
@@ -76,8 +77,3 @@ router.get("/logout", (req, res) => {
     res.redirect("/");
 });
 module.exports = router;
-
-
-
-
-
