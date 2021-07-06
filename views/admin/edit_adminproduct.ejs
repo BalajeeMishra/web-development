@@ -1,0 +1,60 @@
+<%- include("../layouts/adminheader"); -%>
+
+    <h2 class="page-title">Edit product</h2>
+    <a href="/admin/products" class="btn btn-primary">Back to all products</a>
+    <br><br>
+
+    <form method="post" action="/admin/products/edit-product/<%= product._id %>?_method=PUT" method="post"
+        enctype="multipart/form-data">
+
+        <div class="form-group">
+            <label for="">Title</label>
+            <input type="text" class="form-control" name="title" value="<%= product.title %>" placeholder="Title">
+        </div>
+
+        <div class="form-group">
+            <label for="">Description</label>
+            <textarea name="desc" class="form-control" cols="30" rows="10"
+                placeholder="Description"><%= product.desc %></textarea>
+        </div>
+
+
+
+        <div class="form-group">
+            <label for="">Price</label>
+            <input type="text" class="form-control" name="price" value="<%= product.price %>" placeholder="Price">
+        </div>
+
+
+
+        <div class="mb-3">
+            <div class="form-file custom-file">
+                <label for="image">Add more images</label>
+                <input type="file" class="form-file-input" id="image" name="image" multiple>
+            </div>
+        </div>
+
+
+
+
+        <div class="form-group">
+            <div class="mb-3">
+                <% product.images.forEach(function(img, i) { %>
+                    <img src="<%=img.thumbnail %>" class="img-thumbnail" alt="">
+                    <div class="form-check-inline">
+                        <input type="checkbox" id="image-<%=i%>" name="deleteImages[]" value="<%=img.filename%>"
+                            multiple>
+                    </div>
+                    <label for="image-<%=i%>">Delete?</label>
+                    <% })%>
+            </div>
+
+        </div>
+
+
+        <button class="btn btn-primary">Submit</button>
+    </form>
+
+
+
+    <%- include("../layouts/adminfooter"); -%>

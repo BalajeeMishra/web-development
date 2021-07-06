@@ -1,0 +1,28 @@
+<%- include("../layouts/adminheader");-%>
+
+    <h1 class="page-title">Pages</h1>
+    <a href="/admin/pages/add-page" class="btn btn-primary">Add a new page</a>
+    <br><br>
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th>Title</th>
+                <th>Edit</th>
+                <th>delete</th>
+            </tr>
+        </thead>
+        <tbody>
+            <% for(var i=0;i<pages.length;i++){%>
+                <tr>
+                    <td>
+                        <%=pages[i].title %>
+                    </td>
+                    <td><a href="/admin/pages/edit-page/<%=pages[i]._id%>">Edit</a></td>
+                    <td><a href="/admin/pages/delete-page/<%=pages[i]._id%>">Delete</a></td>
+                </tr>
+                <% } %>
+        </tbody>
+    </table>
+
+
+    <%- include("../layouts/adminfooter");-%>

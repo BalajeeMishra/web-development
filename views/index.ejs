@@ -1,0 +1,12 @@
+<%- include("./layouts/header");-%>
+
+
+    <div class="container">
+        <% page.forEach((page)=>{%>
+            <% if(page.slug=="home" ){%>
+                <%=page.content%>
+                    <% } %>
+                        <% }) %>
+                        
+    </div>
+    <%- include("./layouts/footer"); -%>

@@ -1,0 +1,73 @@
+<%- include("./layouts/adminheader"); -%>
+
+    <h2 class="page-title">
+        <% title %>
+    </h2>
+
+    <div class="container">
+        <form method="post" action="/users/register" class="needs-validation" nonvalidate>
+
+            <div class="form-group mb-3">
+                <label for="name" class="form-label">Name</label>
+                <input type="text" name="name" class="form-control" placeholder="Name" required>
+                <div class="valid-feedback">
+                    Looks good!
+                </div>
+            </div>
+
+            <div class="form-group mb-3">
+                <label for="email" class="form-label">Email</label>
+                <input type="text" name="email" class="form-control" placeholder="Email" required>
+                <div class="valid-feedback">
+                    Looks good!
+                </div>
+            </div>
+
+            <div class="form-group mb-3">
+                <label for="username" class="form-label">Username</label>
+                <input type="text" name="username" class="form-control" placeholder="Username" required>
+                <div class="valid-feedback">
+                    Looks good!
+                </div>
+            </div>
+
+            <div class="form-group mb-3">
+                <label for="password" class="form-label">Password</label>
+                <input type="password" name="password" class="form-control" placeholder="Password" required>
+                <div class="valid-feedback">
+                    Looks good!
+                </div>
+            </div>
+
+
+
+
+            <button type="submit" class="btn btn-success">Register</button>
+        </form>
+    </div>
+
+    <script>
+        // Example starter JavaScript for disabling form submissions if there are invalid fields
+        (function () {
+            'use strict'
+
+            // Fetch all the forms we want to apply custom Bootstrap validation styles to
+            const forms = document.querySelectorAll('.needs-validation')
+
+            // Loop over them and prevent submission
+            Array.from(forms)
+                .forEach(function (form) {
+                    form.addEventListener('submit', function (event) {
+                        if (!form.checkValidity()) {
+                            event.preventDefault()
+                            event.stopPropagation()
+                        }
+
+                        form.classList.add('was-validated')
+                    }, false)
+                })
+        })()
+    </script>
+
+
+    <%- include("./layouts/adminfooter"); -%>
