@@ -12,6 +12,9 @@ const methodOverride = require('method-override');
 const passport = require('passport');
 const LocalStrategy = require('passport-local');
 const User = require('./models/user');
+//const URL = "mongodb+srv://Balajee:mongo@123@cluster0.rfqls.mongodb.net/myFirstDatabase?retryWrites=true&w=majority";
+var MONGODB_URI = process.env.MONGODB_URL || "mongodb://localhost:27017/shoppingcart";
+
 
 
 
@@ -25,11 +28,12 @@ const Userproduct = require("./routes/product");
 const payment = require("./routes/payment");
 
 
-mongoose.connect('mongodb://localhost:27017/shoppingcart', {
+mongoose.connect(MONGODB_URI, {
     useNewUrlParser: true,
     useCreateIndex: true,
-    useUnifiedTopology: true,
-    useFindAndModify: false
+    // useUnifiedTopology: true,
+    useFindAndModify: false,
+    family: 4
 });
 
 const db = mongoose.connection;
