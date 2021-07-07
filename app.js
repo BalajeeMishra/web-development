@@ -13,9 +13,7 @@ const passport = require('passport');
 const LocalStrategy = require('passport-local');
 const User = require('./models/user');
 const PORT = process.env.PORT || 3000;
-//const URL = "mongodb+srv://Balajee:mongo@123@cluster0.rfqls.mongodb.net/myFirstDatabase?retryWrites=true&w=majority";
-//var MONGODB_URI = process.env.MONGODB_URL || "mongodb://localhost:27017/shoppingcart";
-
+const URL = "mongodb+srv://Balajee:mongo@123@cluster0.rfqls.mongodb.net/myFirstDatabase?retryWrites=true&w=majority";
 
 
 
@@ -29,19 +27,30 @@ const Userproduct = require("./routes/product");
 const payment = require("./routes/payment");
 
 
-mongoose.connect("mongodb://localhost:27017/shoppingcart", {
-    useNewUrlParser: true,
-    useCreateIndex: true,
-    useUnifiedTopology: true,
-    useFindAndModify: false,
-    // family: 4
-});
+// mongoose.connect("mongodb://localhost:27017/shoppingcart", {
+//     useNewUrlParser: true,
+//     useCreateIndex: true,
+//     useUnifiedTopology: true,
+//     useFindAndModify: false,
+//     // family: 4
+// });
 
-const db = mongoose.connection;
-db.on("error", console.error.bind(console, "connection error:"));
-db.once("open", () => {
-    console.log("Database connected");
-});
+// const db = mongoose.connection;
+// db.on("error", console.error.bind(console, "connection error:"));
+// db.once("open", () => {
+//     console.log("Database connected");
+// });
+
+
+
+mongoose.connect(URL, { useNewUrlParser: true, useUnifiedTopology: true, useFindAndModify: false, useCreateIndex: true })
+    .then(() => {
+        console.log("connection open");
+
+    })
+    .catch((err) => {
+        console.log(err);
+    })
 
 
 

@@ -10,9 +10,9 @@ const wrapasync = require("../controlError/wrapasync");
 router.get("/", async (req, res, next) => {
     try {
         const category = await Category.find({});
-        if (category.length === 0) {
-            throw new AppError("page contain nothing!add first.", 200);
-        }
+        // if (category.length === 0) {
+        //     throw new AppError("page contain nothing!add first.", 200);
+        // }
         res.render("admin/category", { category });
 
     }
