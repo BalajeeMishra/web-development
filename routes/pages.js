@@ -130,8 +130,9 @@ router.get("/cart/:id", isLoggedIn, wrapAsync(async (req, res, next) => {
 
 
                                         });
+                                    // backURL == "http://localhost:3000/all/mycart"
 
-                                    if (backURL == "http://localhost:3000/all/mycart") {
+                                    if (backURL == "https://companyofmarket.herokuapp.com/all/mycart") {
 
 
                                         res.redirect(backURL);
@@ -266,12 +267,10 @@ router.get("/carts/:id", isLoggedIn, wrapAsync(async (req, res) => {
 
                                 });
 
-                            if (backURL == "http://localhost:3000/all/mycart") {
+                            if (backURL == "https://companyofmarket.herokuapp.com/all/mycart") {
                                 res.redirect(backURL);
                             }
-                            else {
-                                res.send("okay")
-                            }
+
 
                         }
                     }
