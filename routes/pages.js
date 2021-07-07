@@ -132,10 +132,13 @@ router.get("/cart/:id", isLoggedIn, wrapAsync(async (req, res, next) => {
                                         });
 
                                     if (backURL == "http://localhost:3000/all/mycart") {
+
+
                                         res.redirect(backURL);
                                     }
                                     else {
-                                        res.send("okay")
+                                        req.flash("success", "product added");
+                                        res.redirect("/products")
                                     }
 
 
@@ -162,9 +165,6 @@ router.get("/cart/:id", isLoggedIn, wrapAsync(async (req, res, next) => {
                             })
                         }
 
-                        else {
-                            console.log("balajee");
-                        }
 
 
                     })
@@ -174,11 +174,8 @@ router.get("/cart/:id", isLoggedIn, wrapAsync(async (req, res, next) => {
             }
 
             else {
-
-                console.log("balajee");
                 addCart = new Cart({ userId: req.user._id, products: [req.params.id], quantity: 1 });
                 addCart.totalPrice = product.price;
-                console.log("mishra");
                 addCart.save()
                     .then(() => {
                         req.flash("success", "product added");
@@ -197,7 +194,6 @@ router.get("/cart/:id", isLoggedIn, wrapAsync(async (req, res, next) => {
 }));
 
 router.get("/blank/CART", wrapAsync((req, res) => {
-    // req.flash("error", "your cart is empty!Go for shopping first!");
     res.render("blankCart");
 }));
 
@@ -208,7 +204,6 @@ router.get("/all/mycart", isLoggedIn, wrapAsync(async (req, res) => {
     const qty = 0;
     const products = await Product.find({});
     const page = await Page.find({});
-    // console.log(products);
     Cart.find({ userId: req.user._id })
 
         .then(carts => {
@@ -238,7 +233,6 @@ router.get("/all/mycart", isLoggedIn, wrapAsync(async (req, res) => {
 router.get("/mycart/:id", isLoggedIn, wrapAsync(async (req, res) => {
     const { id } = req.params;
     var carts = await Cart.find({ userId: req.user._id });
-    // if (carts.length ==)
     const deletedCart = await Cart.findByIdAndDelete(id);
     res.redirect("/all/mycart");
 }));
@@ -281,7 +275,6 @@ router.get("/carts/:id", isLoggedIn, wrapAsync(async (req, res) => {
 
                         }
                     }
-                    console.log("balajee");
                     const { id } = req.params;
                     console.log(id);
                     const deletedCart = await Cart.findByIdAndDelete(id);
@@ -294,7 +287,5 @@ router.get("/carts/:id", isLoggedIn, wrapAsync(async (req, res) => {
         })
         .catch(e => next(e));
 }));
-
-
 
 module.exports = router;

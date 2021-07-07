@@ -1,0 +1,121 @@
+.category {
+
+    display: flex;
+    justify-content: space-around;
+
+}
+
+
+.homeImage {
+
+
+    margin-top: 0px;
+    /* background: url(https://www.bing.com/images/blob?bcid=SwRIoBeFTfQCLSLAG1w839YeRK-3.....60) no-repeat center center/cover; */
+    height: 100vh;
+    background-color: #464045;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    font-size: 3em;
+
+
+}
+
+.inner-class {
+    background: rgba(0, 0, 0, 0.1);
+    width: 100%;
+    text-align: center;
+    font-family: "Times New Roman", Times, serif;
+}
+
+.byCategory {
+    color: orange;
+    text-shadow: 1px 1px #fff;
+    font-weight: 900;
+    margin-top: 0.5rem !important;
+    margin-bottom: 1.5rem !important;
+}
+
+.empty-cart {
+    height: 90vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 2em;
+    font-weight: bold;
+    text-shadow: 1px 1px rgba(189, 40, 40, 0.336);
+
+}
+
+#about {
+    width: 50%;
+    margin: auto;
+    margin-top: 2em;
+}
+
+.form-tocontact {
+    width: 50%;
+    margin: auto;
+}
+
+.regular-update {
+    width: 50%;
+    margin: auto;
+    color: orange;
+    text-shadow: 1px 1px #fff;
+    font-weight: 900;
+    margin-top: 4rem !important;
+    margin-bottom: 2rem !important;
+
+
+}
+
+.fa {
+    padding: 20px;
+    text-align: center;
+    margin: 5px 2px;
+    font-size: 30px;
+    width: 50px;
+    margin-left: 10px;
+}
+
+.fa-facebook {
+    background: #3B5998;
+    color: white;
+}
+
+.fa-twitter {
+    background: #55ACEE;
+    color: white;
+}
+
+.fa-linkedin {
+    background: #007bb5;
+    color: white;
+}
+
+.fa-instagram {
+    background: #125688;
+    color: white;
+}
+
+.fa:hover {
+    opacity: 0.9;
+}
+
+.follow-us {
+    width: 300px;
+    margin-top: 3em;
+    text-align: center;
+}
+
+.follow-us-text {
+    font-family: 'Courier New', Courier, monospace;
+}
+
+.nav-style {
+
+    font-weight: bold;
+}

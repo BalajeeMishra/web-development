@@ -11,7 +11,7 @@ paypal.configure({
 });
 
 
-router.get('/success/bakchodi', (req, res) => {
+router.get('/success/try', (req, res) => {
     console.log("successs");
     const payerId = req.query.PayerID;
     const paymentId = req.query.paymentId;
@@ -50,7 +50,7 @@ router.post('/pay', (req, res) => {
             "payment_method": "paypal"
         },
         "redirect_urls": {
-            "return_url": "http://localhost:3000/success/bakchodi",
+            "return_url": "http://localhost:3000/success/try",
             "cancel_url": "http://localhost:3000/cancel"
         },
         "transactions": [{

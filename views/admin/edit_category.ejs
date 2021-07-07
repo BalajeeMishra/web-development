@@ -5,7 +5,7 @@
         <a href="/admin/categories" class="btn btn-info mt-2">Back to all categories</a>
     </div>
     <br><br>
-    <div class="container">
+    <div class="container table-style">
 
         <form action="/admin/categories/edit-category/<%=category._id %>?_method=PUT" method="post">
 
@@ -13,7 +13,7 @@
                 <label for="">Title</label>
                 <input class="form-control" type="text" value="<%=category.title %> " name="title" placeholder="Title">
             </div>
-            <button class="btn btn-info mt-2">submit</button>
+            <button class="btn btn-info mt-2 button-style">submit</button>
         </form>
 
     </div>
