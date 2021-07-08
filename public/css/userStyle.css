@@ -138,6 +138,7 @@
     .card-style {
      width: 100%;
       min-height: 450px;
+      margin: auto;
     }
   }
   
