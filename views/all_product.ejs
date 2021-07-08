@@ -6,58 +6,61 @@
 
         }
     </style>
+    <div class="container-fluid">
 
-    <% product.forEach((pro,i)=>{%>
-        <div class="card mb-3" style="text-align: center; width: 30%;  float: left; 
-            margin: 1.20em; padding: 2px 0; box-shadow: 2px 2px 2px 2px rgb(231, 216, 216); 
-            min-height: 400px; max-height: 400px; overflow: hidden;">
-            <div class="card-body">
-                <div id="carouselExample<%=i%>" class="carousel slide " data-bs-ride="carousel">
-                    <div class="carousel-inner">
-                        <% pro.images.forEach((img,i)=>{%>
-                            <% if(i==0) {%>
-                                <div class="carousel-item active" data-bs-interval="10000">
-                                    <img src="<%=img.url%>" class="d-block w-100" alt="...">
-
-                                </div>
-                                <%}else{ %>
-
-                                    <div class="carousel-item" data-bs-interval="5000">
+        <% product.forEach((pro,i)=>{%>
+            <div class="card mb-3 card-style">
+                <div class="card-body">
+                    <div id="carouselExample<%=i%>" class="carousel slide " data-bs-ride="carousel">
+                        <div class="carousel-inner">
+                            <% pro.images.forEach((img,i)=>{%>
+                                <% if(i==0) {%>
+                                    <div class="carousel-item active" data-bs-interval="10000">
                                         <img src="<%=img.url%>" class="d-block w-100" alt="...">
 
                                     </div>
+                                    <%}else{ %>
 
-                                    <% } %>
+                                        <div class="carousel-item" data-bs-interval="5000">
+                                            <img src="<%=img.url%>" class="d-block w-100" alt="...">
 
-                                        <% }) %>
+                                        </div>
+
+                                        <% } %>
+
+                                            <% }) %>
+                        </div>
+                        <% if(pro.images.length> 1) {%>
+
+                            <button class="carousel-control-prev" type="button" data-bs-target="#carouselExample<%=i%>"
+                                data-bs-slide="prev">
+                                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                                <span class="visually-hidden">Previous</span>
+                            </button>
+                            <button class="carousel-control-next" type="button" data-bs-target="#carouselExample<%=i%>"
+                                data-bs-slide="next">
+                                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                                <span class="visually-hidden">Next</span>
+                            </button>
+                            <% } %>
                     </div>
-                    <% if(pro.images.length> 1) {%>
 
-                        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExample<%=i%>"
-                            data-bs-slide="prev">
-                            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                            <span class="visually-hidden">Previous</span>
-                        </button>
-                        <button class="carousel-control-next" type="button" data-bs-target="#carouselExample<%=i%>"
-                            data-bs-slide="next">
-                            <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                            <span class="visually-hidden">Next</span>
-                        </button>
-                        <% } %>
+
                 </div>
+                <p class="card-text">
+                    <%=pro.title %>
+                </p>
+                <p class="card-text">
+                    INR <%=pro.price%> (20% off)
+                </p>
 
+                <a href="/cart/<%=pro._id %>">add to cart</a>
 
             </div>
-            <p class="card-text">
-                <%=pro.title %>
-            </p>
-            <p class="card-text">
-                INR <%=pro.price%> (20% off)
-            </p>
 
-            <a href="/cart/<%=pro._id %>">add to cart</a>
+            <% }) %>
+    </div>
+    </div>
+    </div>
 
-        </div>
-
-        <% }) %>
-            <%- include("./layouts/footer");-%>
+    <%- include("./layouts/footer");-%>
