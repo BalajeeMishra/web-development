@@ -189,3 +189,14 @@
         margin-bottom: 2px;
     }
 }
+.mycart-totalprice{
+    height: 100px;
+    text-align: center; 
+    font-weight: bold; 
+    margin:auto;
+    color: rgb(218, 112, 25); 
+    font-size: 1.5em;
+}
+.goodalign{
+    min-width: 200px;
+}

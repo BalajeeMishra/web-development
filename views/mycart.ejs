@@ -1,7 +1,7 @@
 <%- include("./layouts/header");-%>
 
     <div class="container mt-5 table-style table-responsive-sm  table-responsive-md table-responsive-lg">
-        <table class="table table-striped alignmiddle  table-dark table-hover">
+        <table class="table table-striped alignmiddle  table-success table-hover">
             <thead>
                 <tr style="text-align:center;">
                     <th>Title</th>
@@ -18,21 +18,16 @@
                 <% carts.forEach((cart)=>{%>
                     <% Total=Total+cart.totalPrice; %>
                         <%qty=qty+cart.quantity %>
-
                             <% products.forEach((pro)=>{%>
 
 
                                 <% if(cart.products[0].toString()===pro._id.toString() ){%>
 
-
-
-
-
                                     <tr style="text-align:center;">
                                         <td>
                                             <%=pro.title%>
                                         </td>
-                                        <td>
+                                        <td class="goodalign">
                                             $ <%=pro.price%>
                                         </td>
                                         <td>
@@ -71,28 +66,48 @@
                                         </td>
                                     </tr>
 
+
                                     <% }%>
 
                                         <% }) %>
                                             <%}) %>
 
-                                                </form>
+                                                <tr class="mycart-totalprice">
+                                                    <td></td>
+                                                    <td></td>
+                                                    <td></td>
+                                                    <td></td>
+                                                    <td>Total</td>
+                                                    <td> </td>
+                                                    <td class="goodalign">$ <%=Total %>
+                                                    </td>
+                                                    <td class="goodalign">
+                                                        <form method="post" action="/pay">
+                                                            <input type="hidden" name="quantity" value="1">
+                                                            <input type="hidden" name="price" value="<%=Total %> ">
+                                                            <button class="btn btn-info" type="submit">Buy Now</button>
+                                                        </form>
+
+                                                    </td>
+                                                </tr>
+
+
 
             </tbody>
 
         </table>
     </div>
-    <div class="container">
+    <!-- <div class="container">
         <div class="card" style=" text-align: center; width: 30%; float: right; margin-bottom: 2em; padding: 2px 0;
     box-shadow: 2px 2px 2px 2px rgb(231, 216, 216);">
             <div class=" card-body">
 
-                <h4 class=" my-3">Total: $ <%=Total %>
+                <h4 class=" my-3">Total: $ <%//=Total %>
                 </h4>
 
                 <form method="post" action="/pay">
                     <input type="hidden" name="quantity" value="1">
-                    <input type="hidden" name="price" value="<%=Total %> ">
+                    <input type="hidden" name="price" value="<%=//Total %> ">
                     <button class="btn btn-info" type="submit">Buy Now</button>
                 </form>
 
@@ -101,5 +116,5 @@
         </div>
     </div>
 
-    </div>
+    </div> -->
     <%- include("./layouts/footer");-%>

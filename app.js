@@ -14,10 +14,7 @@ const passport = require('passport');
 const LocalStrategy = require('passport-local');
 const User = require('./models/user');
 const PORT = process.env.PORT || 3000;
-const URL = "mongodb+srv://Balajee:mongo@123@cluster0.rfqls.mongodb.net/myFirstDatabase?retryWrites=true&w=majority";
-
-
-
+// const URL = "mongodb+srv://Balajee:mongo@123@cluster0.rfqls.mongodb.net/myFirstDatabase?retryWrites=true&w=majority";
 
 const Categories = require("./routes/admin_categories");
 const Pages = require("./routes/pages")
@@ -26,6 +23,10 @@ const Users = require("./routes/user");
 const admin_pages = require("./routes/admin_pages");
 const Userproduct = require("./routes/product");
 const payment = require("./routes/payment");
+
+
+const uri = "mongodb+srv://Balajee:mongo@123@cluster0.rfqls.mongodb.net/myFirstDatabase?retryWrites=true&w=majority";
+
 
 
 // mongoose.connect("mongodb://localhost:27017/shoppingcart", {
@@ -44,7 +45,7 @@ const payment = require("./routes/payment");
 
 
 
-mongoose.connect(URL, { useNewUrlParser: true, useUnifiedTopology: true, useFindAndModify: false, useCreateIndex: true })
+mongoose.connect(uri, { useNewUrlParser: true, useUnifiedTopology: true, useFindAndModify: false, useCreateIndex: true })
     .then(() => {
         console.log("connection open");
 
