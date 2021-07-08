@@ -209,7 +209,7 @@ router.get("/all/mycart", isLoggedIn, wrapAsync(async (req, res) => {
 
         .then(carts => {
             if (typeof carts === "undefined" || carts.length == 0) {
-                req.flash("error", "your cart is empty!Go for shopping first!");
+                // req.flash("error", "your cart is empty!Go for shopping first!");
                 res.redirect("/blank/CART");
             }
             else {

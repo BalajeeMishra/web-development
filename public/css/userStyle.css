@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;500&display=swap');
+
 .category {
 
     display: flex;
@@ -8,26 +10,42 @@
 
 .homeImage {
 
-
     margin-top: 0px;
-    /* background: url(https://www.bing.com/images/blob?bcid=SwRIoBeFTfQCLSLAG1w839YeRK-3.....60) no-repeat center center/cover; */
-    height: 100vh;
-    background-color: #464045;
+    background: url(https://th.bing.com/th/id/R.28c050eb1b8d7950f1ee0efcab29aa83?rik=0P7TKoVbMhL3yQ&riu=http%3a%2f%2fsmartcanucks.ca%2fwp-content%2fuploads%2f2014%2f11%2fSC-STORES.jpeg&ehk=%2fYlOLiPUug3CW8Bt%2bk7SO2EV69YdxqaQJTvqKkkrub8%3d&risl=&pid=ImgRaw) no-repeat center center/cover;
+    height: 115vh;
+    position: relative;
+    background-color: #000; 
     display: flex;
     flex-direction: column;
-    justify-content: center;
-    align-items: center;
     color: white;
     font-size: 3em;
+    overflow: hidden;
 
 
 }
 
-.inner-class {
-    background: rgba(0, 0, 0, 0.1);
+.homeImage:after{
+    position: absolute;
+    content: "";
+    top: 0;
+    left:0;
     width: 100%;
+    height: 100%;
+    background-color: rgba(0,0,0,0.3);
+}
+
+.inner-class {
+   
+    width: 100%;
+    height: 50px;
+    color:#2aee26;
     text-align: center;
-    font-family: "Times New Roman", Times, serif;
+    font-weight: bold;
+    font-style:'Poppins', sans-serif;
+    z-index: 100;
+    margin-top: 3em;
+
+    
 }
 
 .byCategory {
@@ -118,6 +136,9 @@
 .nav-style {
 
     font-weight: bold;
+    background-color:#d3d6f3;
+    height: 80px;
+
 }
 
  .card-style{
@@ -156,9 +177,6 @@
         margin-top: 1em;
         margin-bottom: 3em;
   }
-  /* .table-style{
-      width: 30%;
-  } */
 }
   
   @media screen and (min-width: 768px) and (max-width:992px) {
@@ -199,4 +217,42 @@
 }
 .goodalign{
     min-width: 200px;
+}
+.homeImage>a>button{
+    font-weight: bold; 
+    width: 150px;
+    height: 50px;
+     padding: 5px; 
+     cursor: pointer; 
+     border-radius: 20px;
+     background-color: rgb(202, 92, 41);
+     /* background-color: #1F12BA; */
+    font-family: Arial, Helvetica, sans-serif;
+}
+  div.header-text a{
+    color:#480bf4; 
+    font-weight: bolder;
+}  
+.shop-now{
+    width: 300px;
+    height: 60px;
+    z-index: 101;
+    margin: 30px auto 15px;
+
+}
+
+.shop-now>a{
+    color: #f9e42c; 
+    text-decoration: none; 
+    width: 100%; 
+    background-color: #020202;
+    padding: 0 30px;
+    font-family:'Poppins', sans-serif;
+    align-items: center;
+    font-weight: 500;
+    text-align: center;
+    background-color: rgba(0,0,0,0.8);
+    border-radius: 12px;
+    font-size: 30px;
+    
 }

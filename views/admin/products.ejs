@@ -5,8 +5,7 @@
         <a href="/admin/products/add-product" class="btn btn-info mt-2">Add a new product</a>
     </div>
     <br><br>
-
-    <div class="container table-style">
+    <div class="container table-style table-responsive-sm  table-responsive-md table-responsive-lg">
         <table class="table table-striped alignmiddle">
             <thead>
                 <tr class="th-style">
@@ -24,15 +23,15 @@
                         <td>
                             <%= product.title %>
                         </td>
-                        <td>
-                            INR <%= product.price %>
+                        <td class="goodalign">
+                            $ <%= product.price %>
                         </td>
 
                         <td>
                             <%= product.category %>
                         </td>
 
-                        <td style="width: 20%;">
+                        <td style="width: 20%;" class="goodalign">
                             <div id="productCarousel<%=j%>" class="carousel slide" data-bs-touch="false"
                                 data-bs-interval="false">
                                 <div class="carousel-inner">

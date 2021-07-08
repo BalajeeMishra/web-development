@@ -1,6 +1,4 @@
-// if (process.env.NODE_ENV !== "production") {
 
-// }
 require('dotenv').config();
 const express = require('express');
 const path = require('path');
@@ -14,7 +12,7 @@ const passport = require('passport');
 const LocalStrategy = require('passport-local');
 const User = require('./models/user');
 const PORT = process.env.PORT || 3000;
-// const URL = "mongodb+srv://Balajee:mongo@123@cluster0.rfqls.mongodb.net/myFirstDatabase?retryWrites=true&w=majority";
+
 
 const Categories = require("./routes/admin_categories");
 const Pages = require("./routes/pages")
@@ -27,6 +25,7 @@ const payment = require("./routes/payment");
 
 const uri = "mongodb+srv://Balajee:mongo@123@cluster0.rfqls.mongodb.net/myFirstDatabase?retryWrites=true&w=majority";
 
+// if (process.env.NODE_ENV !== "production") {
 
 
 // mongoose.connect("mongodb://localhost:27017/shoppingcart", {
@@ -42,6 +41,10 @@ const uri = "mongodb+srv://Balajee:mongo@123@cluster0.rfqls.mongodb.net/myFirstD
 // db.once("open", () => {
 //     console.log("Database connected");
 // });
+
+// }
+
+
 
 
 
