@@ -11,8 +11,8 @@
 .homeImage {
 
     margin-top: 0px;
-    background: url(https://th.bing.com/th/id/R.28c050eb1b8d7950f1ee0efcab29aa83?rik=0P7TKoVbMhL3yQ&riu=http%3a%2f%2fsmartcanucks.ca%2fwp-content%2fuploads%2f2014%2f11%2fSC-STORES.jpeg&ehk=%2fYlOLiPUug3CW8Bt%2bk7SO2EV69YdxqaQJTvqKkkrub8%3d&risl=&pid=ImgRaw) no-repeat center center/cover;
-    height: 115vh;
+    background: url(back.jpg) no-repeat center center/cover;
+    height: 88vh;
     position: relative;
     background-color: #000; 
     display: flex;
@@ -20,7 +20,6 @@
     color: white;
     font-size: 3em;
     overflow: hidden;
-
 
 }
 
@@ -266,7 +265,7 @@
     margin-left:auto;
     margin-right: auto;
     margin-top: 1em;
-    transition: all 5s ease-in-out;
+    transition: all 2s ease-in-out;
 }
 
 .shop-now>a{
