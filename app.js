@@ -103,6 +103,8 @@ app.use((req, res, next) => {
     next();
 });
 
+
+
 //routes part.
 app.use("/admin/products", Product);
 app.use("/admin/pages", admin_pages);
