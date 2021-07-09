@@ -1,7 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;500&display=swap');
 
 .category {
-
     display: flex;
     justify-content: space-around;
 
@@ -13,6 +12,7 @@
     margin-top: 0px;
     background: url(back.jpg) no-repeat center center/cover;
     height: 88vh;
+    /* height: calc(100vh-40px); */
     position: relative;
     background-color: #000; 
     display: flex;

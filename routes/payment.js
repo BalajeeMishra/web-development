@@ -11,7 +11,7 @@ paypal.configure({
 });
 
 
-router.get('/success/try', (req, res) => {
+router.get('/success/success', (req, res) => {
     console.log("successs");
     const payerId = req.query.PayerID;
     const paymentId = req.query.paymentId;
@@ -50,8 +50,8 @@ router.post('/pay', (req, res) => {
             "payment_method": "paypal"
         },
         "redirect_urls": {
-            "return_url": "http://localhost:3000/success/try",
-            "cancel_url": "http://localhost:3000/cancel"
+            "return_url": "https://companyofmarket.herokuapp.com/success/success",
+            "cancel_url": "https://companyofmarket.herokuapp.com/cancel/cancel"
         },
         "transactions": [{
             "item_list": {
@@ -71,7 +71,6 @@ router.post('/pay', (req, res) => {
         }]
 
     };
-    console.log("balajee");
 
     paypal.payment.create(create_payment_json, function (error, payment) {
         if (error) {
@@ -88,5 +87,9 @@ router.post('/pay', (req, res) => {
 });
 
 
-router.get('/cancel', (req, res) => res.send('Cancelled'));
+router.get('/cancel/cancel', (req, res) => {
+    req.flash("error", "payment cancelled try again");
+    res.redirect("/");
+
+})
 module.exports = router;
