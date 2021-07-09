@@ -25,6 +25,7 @@
 
 .nav-style {
     font-weight: bold;
+    /* background-color:#d3d6f3!important; */
 }
 
 .button-style {
@@ -46,3 +47,7 @@ div.main-title>a{
     background-color: rgb(202, 92, 41);
    
 }
+/* div.header-text a{
+    color: #480bf4!important;
+    font-weight: bolder;
+}   */
