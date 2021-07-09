@@ -50,7 +50,7 @@
 }
  @media screen and (max-width: 576px) {
     .inner-class {
-        min-width: 100px;
+    min-width: 100px;
     max-width: 100%;
     min-height: 50px;
      
@@ -87,16 +87,38 @@
 
 }
 
-#about {
+.about {
     width: 50%;
     margin: auto;
     margin-top: 2em;
+    text-align: justify;
 }
+
+@media screen and (max-width:576px){
+    .about {
+        width: 80%;
+        margin: auto; 
+        margin-top: 2em;
+        text-align: justify;
+    }
+    .about svg,.about a{
+        display:none;
+        }
+}
+
 
 .form-tocontact {
     width: 50%;
     margin: auto;
 }
+@media screen and (max-width: 576px) {
+    .form-tocontact {
+        width: 80%;
+        margin: auto;
+    }
+ 
+}
+
 
 .regular-update {
     width: 50%;
@@ -109,6 +131,17 @@
 
 
 }
+
+@media screen and (max-width: 576px) {
+    .regular-update {
+        width: 80%;
+        margin: auto;
+    }
+}
+
+
+
+
 
 .fa {
     padding: 20px;
@@ -144,9 +177,12 @@
 }
 
 .follow-us {
-    width: 300px;
+   
     margin-top: 3em;
+    margin-bottom: 1em;
     text-align: center;
+   margin: 15px auto;
+
 }
 
 .follow-us-text {
@@ -246,7 +282,6 @@
      cursor: pointer; 
      border-radius: 20px;
      background-color: rgb(202, 92, 41);
-     /* background-color: #1F12BA; */
     font-family: Arial, Helvetica, sans-serif;
 
 }
@@ -284,4 +319,14 @@
 }
 .shop-now>a:hover{
     text-shadow: 0px 10px rgba(255,255,255, 0.25);
+}
+.register{
+    width: 50% !important;
+    margin: auto;
+}
+@media screen and (max-width:576px){
+    .register{
+        width: 80%!important;
+        margin: auto;
+    }
 }
