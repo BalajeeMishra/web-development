@@ -42,7 +42,6 @@ const uri = "mongodb+srv://Balajee:mongo@123@cluster0.rfqls.mongodb.net/myFirstD
 //     console.log("Database connected");
 // });
 
-// }
 
 
 
