@@ -237,3 +237,13 @@ p {
     width: 80%;
   }
 }
+@media screen and (min-width: 768px) and (max-width: 992px) {
+  .all-body {
+    width: 55%;
+  }
+}
+@media screen and (min-width: 992px) and (max-width: 1000px) {
+  .all-body {
+    width: 50%;
+  }
+}
