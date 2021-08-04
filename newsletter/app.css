@@ -40,12 +40,9 @@ body {
   width: 60%;
   padding: 15px;
   text-align: justify;
-  max-height: 200px;
-  overflow: auto;
+ 
 }
-div.text-content::-webkit-scrollbar {
-  display: none;
-}
+
 .upper-text {
   text-align: justify;
   margin-top: 10px;
@@ -235,6 +232,13 @@ p {
   }
   .forflex-element {
     width: 100%;
+  }
+   .text-content {
+    max-height: 200px;
+    overflow: auto;
+  }
+  div.text-content::-webkit-scrollbar {
+    display: none;
   }
 }
 @media screen and (max-width: 768px) and (min-width: 577px) {
