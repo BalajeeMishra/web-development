@@ -40,6 +40,11 @@ body {
   width: 60%;
   padding: 15px;
   text-align: justify;
+  max-height: 200px;
+  overflow: auto;
+}
+div.text-content::-webkit-scrollbar {
+  display: none;
 }
 .upper-text {
   text-align: justify;
