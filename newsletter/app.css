@@ -200,7 +200,10 @@ p {
   background-color: #888;
   transition: all 0.8s ease-in-out;
 }
-
+.twitter {
+  position: relative;
+  right: 5px;
+}
 @media screen and (max-width: 576px) {
   body {
     font-size: 0.7em;
