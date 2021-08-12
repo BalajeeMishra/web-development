@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>POST</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <link rel="stylesheet" href="app.css">
+</head>
+
+<body>
+
+    <div class="post">
+        <div class="bothof">
+            <div class="image1">
+                <img
+                    src="data:image/jpeg;base64,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">
+            </div>
+            <div class="name">
+                <h6>Balajee Mishra . <span class="inside-name">following</span></h6>
+                <p style="margin-top:-5px; margin-bottom: 0px; color: grey;">Web Developer who loves to write code</p>
+                <p style="color: grey;">10h</p>
+            </div>
+        </div>
+        <div class="bothof post-content">
+            <p class="">Caption of this post is:(Please must use github or any code hosting platform for future
+                reference):
+
+                Actually you all know about GitHub.I wrote this post because of my frustration level 🥲today's night
+                whatever happened with me(all the code suddenly deleted from vs editor of my working project because of
+                some unknown fault): I don't want to let this happen to you..
+
+                .</p>
+        </div>
+
+        <div class="post-image">
+            <img width=500px src="./image/lappi.jpg" alt="">
+        </div>
+
+    </div>
+
+    <div class="post">
+
+        <div class="bothof">
+            <div class="image1">
+                <img src="./image/health.png">
+            </div>
+            <div class="name">
+                <h6>Lori Health . <span class="inside-name">following</span></h6>
+                <p style="margin-top:-5px; margin-bottom: 0px; color: grey;">we care you thats all (Health Solution)</p>
+                <p style="color: grey;">8h</p>
+            </div>
+        </div>
+
+        <div class="bothof post-content">
+            <p class="">
+
+                Lori App is a full solution to take care of your health. The App designs a health plan for you based on
+                your lifestyle, your measurement metrics, your clinical information, your blood tests, your DNA, your
+                choices and preferences. The App not only helps you to manage, reverse or prevent PCOS, cholesterol
+                issues, hypertension (blood pressure), diabetes with custom plans, but also tracks your health
+                consistently. Lori is your new best friend!
+
+                .</p>
+        </div>
+
+        <div class="post-image">
+            <img width=500px src="./image/caring.jpg" alt="">
+        </div>
+
+    </div>
+
+    <div class="post">
+
+        <div class="bothof">
+            <div class="image1">
+                <img src="./image/google.jpg">
+            </div>
+            <div class="name">
+                <h6>Google . <span class="inside-name">following</span></h6>
+                <p style="margin-top:-5px; margin-bottom: 0px; color: grey;">All of you know about me</p>
+                <p style="color: grey;">6h</p>
+            </div>
+        </div>
+
+        <div class="bothof post-content">
+            <p>Google LLC is an American multinational technology company that specializes in Internet-related services
+                and products, which include online advertising technologies, a search engine, cloud computing, software,
+                and hardware.</p>
+        </div>
+
+        <div class="post-image">
+            <img width=500px src="./image/mobo.jpg" alt="">
+        </div>
+
+    </div>
+</body>
+
+</html>
