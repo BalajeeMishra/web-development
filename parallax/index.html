@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Parallax</title>
+    <link rel="stylesheet" href="index.css">
+</head>
+
+<body>
+    <div class="top">
+        <h1>Parallax Scrolling</h1>
+    </div>
+    <div class="content1" style="padding: 50px 80px;">
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Animi eligendi error placeat totam ullam fuga
+        voluptates provident accusantium obcaecati, nobis sequi, beatae enim magnam eius aliquam rerum voluptas ad
+        repellendus! Obcaecati consequuntur rem, nulla animi nihil necessitatibus quae alias quas sapiente hic
+        architecto sit recusandae! Fuga tenetur optio, repellat ad culpa a numquam maxime ipsam perferendis cupiditate
+        sequi modi odit et, ipsa inventore delectus debitis ratione est! Ab repellendus, excepturi iste fuga voluptas
+        dolor eveniet autem suscipit eligendi quos labore ducimus ipsa fugiat voluptatem voluptates cumque quo dolore
+        perferendis at consequatur, officia blanditiis! Fugiat illo soluta architecto molestiae sapiente ex.
+    </div>
+    <section>
+        <img src="./images/moon.jpg" width="30%" height="40%" id="moon1">
+        <img src="./images/multiplemoon.jpg" id="moon">
+
+
+    </section>
+    <div class="content1" style="position: relative; top: 600px; padding: 50px 80px; color:white ; font-weight: bolder;
+       font-size: large; z-index: 1000; ">
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Animi eligendi error placeat totam ullam fuga
+        voluptates provident accusantium obcaecati, nobis sequi, beatae enim magnam eius aliquam rerum voluptas ad
+        repellendus! Obcaecati consequuntur rem, nulla animi nihil necessitatibus quae alias quas sapiente hic
+        architecto sit recusandae! Fuga tenetur optio, repellat ad culpa a numquam maxime ipsam perferendis
+        cupiditate
+        sequi modi odit et, ipsa inventore delectus debitis ratione est! Ab repellendus, excepturi iste fuga
+        voluptas
+        dolor eveniet autem suscipit eligendi quos labore ducimus ipsa fugiat voluptatem voluptates cumque quo
+        dolore
+        perferendis at consequatur, officia blanditiis! Fugiat illo soluta architecto molestiae sapiente ex.
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Sed, amet necessitatibus. Iusto, ea amet ad nostrum
+        tempore veritatis distinctio repudiandae quis ipsam, asperiores, laboriosam fugit repellendus dignissimos dolore
+        magni est?
+        Laboriosam ad debitis est ut quis laborum obcaecati dicta alias commodi ipsum quod hic, quos architecto tempore
+        magnam asperiores nam? Deleniti enim vero eveniet consequuntur molestiae necessitatibus consectetur quidem quia.
+        Assumenda repudiandae esse ab tenetur quo rem voluptates doloremque iure a distinctio modi minus consectetur
+        corporis vero velit architecto ipsum nisi hic odit, totam optio vel. Soluta velit nulla eveniet?
+        Nisi ratione voluptas iste doloremque voluptatibus veritatis consequatur officia tempora laborum quam autem
+        ullam natus asperiores ex, excepturi sapiente voluptatum praesentium quae eum illum repellat aliquam obcaecati
+        reprehenderit porro. Temporibus?
+        Aspernatur eius veritatis facilis non optio id hic. Nam accusantium necessitatibus ex deleniti alias
+        reprehenderit explicabo earum ducimus, dolores ea nostrum soluta placeat quaerat laudantium ullam animi, iste
+        illo eum.
+        Corporis ipsam quia voluptatibus provident ex officiis facere. Ut accusantium delectus omnis adipisci dolorem
+        rem esse eius autem excepturi saepe eaque, vero consequuntur nihil atque ratione deserunt veritatis, illo et?
+
+    </div>
+    <div class="top1" style="padding: 0px; color: white;">
+
+    </div>
+    <div class="top2" style="padding: 0px; color: white;">
+
+    </div>
+
+
+
+
+
+    <script>
+        const moon = document.getElementById("moon");
+        const moon1 = document.getElementById("moon1");
+        const hide = document.getElementById("hide");
+        const drop = document.getElementById("drop");
+        window.addEventListener("scroll", () => {
+            let value = window.scrollY;
+
+
+            if (scrollY < 1400) {
+
+                moon.style.top = value * 0.4 + "px";
+            }
+            hide.style.top = value * 2 + "px";
+            drop.style.right = value * 0.5 + "px";
+        })
+    </script>
+
+</body>
+
+</html>
